@@ -1,43 +1,49 @@
 def welcome
-  puts "Welcome to the Blackjack Table"  # code #welcome here
+   puts "Welcome to the Blackjack Table"
 end
 
 def deal_card
-  rand (1..11)# code #deal_card here
+   rand(1..11) #get random number between 1 and 11
 end
 
 def display_card_total(card_total)
- puts "Your cards add up to #{card_total}" # code #display_card_total here
+   puts "Your cards add up to #{card_total}"
 end
 
 def prompt_user
-  # code #prompt_user here
-    puts "Type 'h' to hit or 's' to stay"
+   puts "Type 'h' to hit or 's' to stay"
 end
 
 def get_user_input
-  loop do # code #get_user_input here
-  puts "Type 'h' to hit or 's' to stay"
-  answer = gets.chomp
-  break if answer == "h"
-  
-end
+   gets.chomp #get user input
 end
 
-def end_game
-  puts "Sorry, you hit #{card_total}. Thanks for playing!" # code #end_game here
+def end_game (card_total)
+   puts "Sorry, you hit #{card_total}. Thanks for playing!"
 end
 
 def initial_round
-  # code #initial_round here
+   sum = deal_card + deal_card #get the total card number of 2 cards
+   display_card_total(sum) #show the total number from above
+   sum #ruby always return the last value line
 end
 
-def hit?
-  # code hit? here
+def hit? (num)
+   prompt_user
+   input = get_user_input #get the value from the user input
+   if input == "s"
+      num
+   elsif input == "h"
+      num += deal_card
+   else
+      invalid_command
+      prompt_user
+   end
+   num #return total number after the user makes a choice
 end
 
 def invalid_command
-  # code invalid_command here
+   puts "Please enter a valid command"
 end
 
 #####################################################
